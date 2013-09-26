@@ -1,0 +1,39 @@
+{
+    "name": "generator-php-library",
+    "version": "1.0.0",
+    "description": "A generator for Yeoman to generate boilerplate for a PHP library with support for PHPUnit",
+    "keywords": [
+        "yeoman-generator",
+        "php",
+        "phpunit"
+    ],
+    "homepage": "https://github.com/jvandemo/generator-php-library",
+    "bugs": "https://github.com/jvandemo/generator-php-library/issues",
+    "author": {
+        "name": "Jurgen Van de Moere",
+        "email": "jurgen@webberid.com",
+        "url": "https://github.com/jvandemo"
+    },
+    "main": "app/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jvandemo/generator-php-library.git"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "dependencies": {
+        "yeoman-generator": "~0.12.0"
+    },
+    "devDependencies": {
+        "mocha": "~1.10.0"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    },
+    "licenses": [
+        {
+            "type": "MIT"
+        }
+    ]
+}
