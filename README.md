@@ -1,6 +1,6 @@
 # Generator-php-library
 
-A generator for Yeoman to generate boilerplate for a PHP library with support for PHPUnit.
+A generator for [Yeoman](http://yeoman.io) to generate boilerplate for a PHP library with support for [PHPUnit](http://phpunit.de).
 
 ## Getting started
 - Make sure you have [yo](https://github.com/yeoman/yo) installed:
