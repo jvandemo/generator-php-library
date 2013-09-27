@@ -51,6 +51,7 @@ Run `grunt` to lint your PHP code and run your unit tests:
 - Added GruntJS support for unit testing using the [grunt-phpunit](https://github.com/SaschaGalley/grunt-phpunit) plugin
 - Added GruntJS support for PHP Code Sniffer using the [grunt-phpcs](https://github.com/SaschaGalley/grunt-phpcs) plugin
 - Added basic `.gitignore`
+- Spoecial thanks to [@melindrea](https://github.com/Melindrea) for providing the idea to include GruntJS support
 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
