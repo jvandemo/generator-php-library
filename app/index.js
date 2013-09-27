@@ -55,12 +55,21 @@ var PhpLibraryGenerator = module.exports = function PhpLibraryGenerator(args, op
                 console.log('');
                 console.log('   2. Add unit tests to the /tests folder');
                 console.log('');
-                console.log('   3. To run the unit tests go to the /tests folder and run: php ../vendor/phpunit/phpunit/phpunit.php');
+                console.log('   3. To lint your code and run the unit tests, simply run: grunt');
                 console.log('');
                 console.log('Have fun!');
 
             });
 
+    });
+
+    this.on('end', function () {
+        console.log('');
+        console.log('------------------------------------------------------------------');
+        console.log('Installing dependencies using npm...');
+        console.log('------------------------------------------------------------------');
+        console.log('');
+        this.installDependencies({ skipInstall: options['skip-install'] });
     });
 
     // this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../composer.json')));
@@ -127,6 +136,18 @@ PhpLibraryGenerator.prototype.doDownloadComposer = function doDownloadComposer()
     });
 };
 
+PhpLibraryGenerator.prototype.doConfigureGruntJS = function doConfigureGruntJS() {
+
+    console.log('');
+    console.log('------------------------------------------------------------------');
+    console.log('Generating GruntJS configuration...');
+    console.log('------------------------------------------------------------------');
+    console.log('');
+
+    this.template('_package.json', 'package.json');
+    this.copy('Gruntfile.js', 'Gruntfile.js');
+};
+
 PhpLibraryGenerator.prototype.setupPhpUnitDirectories = function setupPhpUnitDirectories() {
 
     console.log('');
@@ -141,11 +162,16 @@ PhpLibraryGenerator.prototype.setupPhpUnitDirectories = function setupPhpUnitDir
     // Create subdirectory structure /tests/LibraryTest/Namespace
     for(var i= 0, l=this.libraryNamespaceParts.length; i < l; i++){
         folder = folder +'/' + this.libraryNamespaceParts[i];
+
+        // Add Test suffix to folder name of first level directory name
         if(i === 0){
             folder = folder + 'Test';
         }
         this.mkdir(folder);
     }
+
+    // Add sample file to final folder directory
+    this.copy('tests/SampleTest.php', folder + '/SampleTest.php');
 
     this.template('tests/_phpunit.xml', 'tests/phpunit.xml');
     this.copy('tests/Bootstrap.php', 'tests/Bootstrap.php');
