@@ -197,3 +197,7 @@ PhpLibraryGenerator.prototype.setupLibraryDirectories = function setupLibraryDir
     this.template('_composer.json', 'composer.json');
 };
 
+PhpLibraryGenerator.prototype.doCopyBasicFiles = function doCopyBasicFiles() {
+    this.copy('gitignore', '.gitignore');
+};
+
