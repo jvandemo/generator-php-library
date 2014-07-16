@@ -1,2 +1,2 @@
 !#/bin/bash
-`which php` ../vendor/phpunit/phpunit/phpunit.php
+`which php` `dirname $0`/../vendor/phpunit/phpunit/phpunit.php --configuration `dirname $0`/phpunit.xml
