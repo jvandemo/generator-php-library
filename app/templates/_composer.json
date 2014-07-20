@@ -3,7 +3,7 @@
     "description": "",
     "type": "library",
     "keywords": [],
-    "homepage": "",
+    "homepage": "http://www.example.org/",
     "license": "",
     "require": {
         "php": ">=5.3.3",
