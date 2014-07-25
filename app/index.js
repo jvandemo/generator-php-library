@@ -99,7 +99,13 @@ PhpLibraryGenerator.prototype.askFor = function askFor() {
             name: 'downloadComposer',
             message: 'Would you like to download composer.phar into your project directory?',
             default: true
-        }
+        },
+        {
+            type: 'confirm',
+            name: 'addTravis',
+            message: 'Would you like to add support for Travis-CI?',
+            default: true
+        },
     ];
 
     this.prompt(prompts, function (props) {
@@ -107,6 +113,7 @@ PhpLibraryGenerator.prototype.askFor = function askFor() {
         this.libraryNamespace = props.libraryNamespace;
         this.libraryNamespaceWithDoubleBackslashes = props.libraryNamespace.replace('\\', '\\\\');
         this.downloadComposer = props.downloadComposer;
+        this.addTravis = props.addTravis;
 
         this.libraryNamespaceParts = this.libraryNamespace.split('\\');
 
@@ -134,6 +141,17 @@ PhpLibraryGenerator.prototype.doDownloadComposer = function doDownloadComposer()
         }
         done();
     });
+};
+
+PhpLibraryGenerator.prototype.doAddTravisCI = function doAddTravisCI() {
+
+    console.log('');
+    console.log('------------------------------------------------------------------');
+    console.log('Adding Travis-CI Configuration...');
+    console.log('------------------------------------------------------------------');
+    console.log('');
+
+    this.copy('.travis.yml', '.travis.yml');
 };
 
 PhpLibraryGenerator.prototype.doConfigureGruntJS = function doConfigureGruntJS() {
